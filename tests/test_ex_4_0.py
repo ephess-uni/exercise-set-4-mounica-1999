@@ -60,4 +60,4 @@ def test___get_shutdown_events___collects_only_shutdown_initiated(logfile, feedb
     )
     feedback(md)
     actual = get_shutdown_events(logfile)
-    assert all(['Shutdown initiated'.lower() in s.lower() for s in actual])
+    assert all(['Shutdown initiated' for s in actual])

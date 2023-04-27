@@ -1,5 +1,4 @@
 """ ex_4_3.py """
-import os
 
 try:
     from src.ex_4_0 import get_shutdown_events
@@ -19,7 +18,11 @@ def time_between_shutdowns(logfile):
     """
     Your docstring here.  Replace the pass keyword below with your implementation.
     """
-    pass
+    shutdown_events = get_shutdown_events(logfile)
+    shutdown_messages = [event['message'] for event in shutdown_events]
+    shutdown_datetimes = [logstamp_to_datetime(event['date']) for event in shutdown_events]
+    time_diff = max(shutdown_datetimes) - min(shutdown_datetimes)
+    return time_diff
 
 
 # >>>> The code below will call your function and print the results
